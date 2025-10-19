@@ -16,6 +16,14 @@
                 <input type="number" name="price">
             </div>
             <div>
+                <select name="category_id" id="category">
+                    <option value="">--1 つ選択してください--</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
                 <input type="submit" name="send" value="登録">
             </div>
         </form>

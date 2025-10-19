@@ -13,6 +13,7 @@
                     <td>id</td>
                     <td>商品名</td>
                     <td>価格</td>
+                    <td>カテゴリ名</td>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,8 @@
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ number_format($item->price) }}</td>
+                        {{-- カテゴリを表示する --}}
+                        <td>{{ $item->category->name }}</td>
                         <td>
                             <form action="/item/delete/{{ $item->id }}" method="post">
                                 @csrf

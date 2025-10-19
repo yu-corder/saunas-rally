@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Item;
+use App\Models\Category;
 
 class ItemController extends Controller
 {
@@ -39,7 +40,10 @@ class ItemController extends Controller
     // 商品登録ページ
     public function showAdd()
     {
-        return view('item.add');
+
+        $categories = Category::all();
+
+        return view('item.add', ['categories' => $categories]);
     }
 
     // 商品登録処理
@@ -50,12 +54,14 @@ class ItemController extends Controller
 
         $item->fill($request->all())->save();
 
+        $categories = Category::all();
+
 
         Log::info("登録が完了しました。");
         return view('item.add',
         [
             'message' => '登録が完了しました。',
-
+            'categories' => $categories,
         ]);
     }
 
