@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Item;
 use App\Models\Category;
 use App\Http\Requests\CreateItemRequest;
+use App\Http\Requests\EditStockRequest;
+use Illuminate\Validation\ValidationException;
 
 
 class ItemController extends Controller
@@ -77,6 +79,49 @@ class ItemController extends Controller
         Log::info("削除が完了しました。");
 
 
+        return redirect("/item");
+    }
+
+    // 在庫の入出荷処理
+    public function editStock(EditStockRequest $request, $id)
+    {
+        // URLのidを利用してItemモデルから1件取得
+        $item = Item::find($id);
+
+        // $requestから入力された在庫数を取得
+        $stock = collect($request->input("stock"))->values()->first();
+        // $requestから対象となる商品を特定するkeyを取得
+        $key = collect($request->input("stock"))->keys()->first();
+
+        // 入荷の場合
+        if ($request->has("in")) {
+            // 商品の在庫数に$stockを加算
+            $item->stock += $stock;
+
+            // 出荷の場合
+        } else if ($request->has("out")) {
+            // 在庫数が0の状態で出荷をする場合
+            if ($item->stock == 0) {
+                // バリデーションエラーのメッセージを投げる
+                throw ValidationException::withMessages([
+                    'stock.' . $key => '在庫がありません。'
+                ]);
+                // 出荷数が在庫数を上回っている場合
+            } elseif ($item->stock < $stock) {
+                // バリデーションエラーのメッセージを投げる
+                throw ValidationException::withMessages([
+                    'stock.' . $key => '出荷数は在庫数以下の入力をしてください。'
+                ]);
+            } else {
+                // 商品の在庫数から$stockを減算
+                $item->stock -= $stock;
+            }
+        }
+
+        // 在庫数の変動を保存
+        $item->save();
+
+        // 一覧ページへのリダイレクト
         return redirect("/item");
     }
 }

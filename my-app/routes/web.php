@@ -45,6 +45,9 @@ Route::get('/category/edit/{id}', [CategoryController::class, 'showEdit']);
 
 Route::post('/category/delete/{id}', [CategoryController::class, 'delete']);
 
+// 在庫管理用のルーティング
+Route::post('/item/stock/{id}', [ItemController::class, 'editStock']);
+
 
 // Route::get('/item', function () {
 //     return view("item.index");
