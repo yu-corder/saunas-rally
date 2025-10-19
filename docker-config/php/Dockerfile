@@ -40,5 +40,3 @@
  RUN npm install -g n \
    && n stable \
    && npm update -g npm
-
-　RUN apk add --no-cache mariadb-client
