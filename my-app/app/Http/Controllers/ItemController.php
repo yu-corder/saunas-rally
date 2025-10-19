@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Item;
 use App\Models\Category;
+use App\Http\Requests\CreateItemRequest;
+
 
 class ItemController extends Controller
 {
@@ -47,7 +49,7 @@ class ItemController extends Controller
     }
 
     // 商品登録処理
-    public function add(Request $request)
+    public function add(CreateItemRequest $request)
     {
         //フォームに入力した値の確認
         $item = new Item;

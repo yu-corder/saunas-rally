@@ -10,18 +10,38 @@
             @csrf
             <div>
                 <label for="addname">商品名</label>
-                <input type="text" name="name" id="addname">
+                <input
+                    type="text"
+                    name="name"
+                    id="addname"
+                    value="{{ old('name') }}"
+                    placeholder="商品名を入力してください">
+                @error('name')
+                    <div>{{ $message }}</div>
+                @enderror
             </div>
             <div>
-                <input type="number" name="price">
+                <input
+                    type="number"
+                    name="price"
+                    value="{{ old('price') }}"
+                    placeholder="価格を入力してください">
+                @error('price')
+                    <div>{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <select name="category_id" id="category">
                     <option value="">--1 つ選択してください--</option>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}"
+                            {{ (int)old('category_id')===$category->id ? 'selected' : '' }}
+                        >{{ $category->name }}</option>
                     @endforeach
                 </select>
+                @error('category_id')
+                    <div>{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <input type="submit" name="send" value="登録">
