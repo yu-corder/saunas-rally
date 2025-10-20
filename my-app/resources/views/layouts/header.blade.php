@@ -9,7 +9,7 @@
         </div>
         <nav class="login-user">
             <a href="{{ url('profile') }}">
-                {{-- <li>{{ Auth::user()->name }}</li> --}}
+                <li>{{ Auth::user()->name }}</li>
                 <li>aiueo</li>
             </a>
             <form action="{{ url('logout') }}" method="post">
