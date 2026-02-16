@@ -54,5 +54,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/category/delete/{id}', [CategoryController::class, 'delete']);
 });
 
+Route::get('/sauna', function () {
+    return view('sauna.index');
+});
 
 require __DIR__.'/auth.php';
