@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Controller;
 use App\Models\Sauna;
+use App\Http\Requests\Admin\CreateSaunaRequest;
 
 
 class SaunaController extends Controller
@@ -39,33 +40,26 @@ class SaunaController extends Controller
     //     return redirect("/item");
     // }
 
-    // // 商品登録ページ
-    // public function showAdd()
-    // {
+    //サウナ登録ページ
+    public function showAdd()
+    {
+        return view('admin.sauna.add');
+    }
 
-    //     $categories = Category::all();
+    //サウナ登録処理
+    public function add(CreateSaunaRequest $request)
+    {
+        //フォームに入力した値の確認
+        $sauna = new Sauna;
 
-    //     return view('item.add', ['categories' => $categories]);
-    // }
+        $sauna->fill($request->all())->save();
 
-    // // 商品登録処理
-    // public function add(CreateItemRequest $request)
-    // {
-    //     //フォームに入力した値の確認
-    //     $item = new Item;
-
-    //     $item->fill($request->all())->save();
-
-    //     $categories = Category::all();
-
-
-    //     Log::info("登録が完了しました。");
-    //     return view('item.add',
-    //     [
-    //         'message' => '登録が完了しました。',
-    //         'categories' => $categories,
-    //     ]);
-    // }
+        Log::info("登録が完了しました。");
+        return view('admin.sauna.add',
+        [
+            'message' => '登録が完了しました。',
+        ]);
+    }
 
     // //商品削除
     // public function delete($id)

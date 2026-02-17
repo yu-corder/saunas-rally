@@ -23,6 +23,9 @@ Route::get('/admin/sauna', function () {
 // ログイン認証がされている状態の時のみ
 Route::middleware('auth')->group(function () {
     Route::get('/admin/sauna', [SaunaController::class, 'index']);
+
+    Route::get('/admin/sauna/add', [SaunaController::class, 'showAdd']);
+    Route::post('/admin/sauna/add', [SaunaController::class, 'add']);
 });
 
 
