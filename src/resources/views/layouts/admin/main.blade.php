@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- CSS読み込み -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/admin/style.css') }}" rel="stylesheet" type="text/css">
     <!-- フォント読み込み -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type="text/css">
