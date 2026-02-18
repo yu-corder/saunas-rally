@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/sauna/edit/{id}', [SaunaController::class, 'showEdit']);
     Route::patch('/admin/sauna/edit/{id}', [SaunaController::class, 'edit']);
+
+    Route::post('/admin/sauna/delete/{id}', [SaunaController::class, 'delete']);
 });
 
 
