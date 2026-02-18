@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Controller;
 use App\Models\Sauna;
-use App\Http\Requests\Admin\CreateSaunaRequest;
+use App\Http\Requests\Admin\SaunaRequest;
 
 
 class SaunaController extends Controller
@@ -29,11 +29,11 @@ class SaunaController extends Controller
     }
 
     //サウナ編集の実行
-    public function edit($id, Request $request)
+    public function edit($id, SaunaRequest $request)
     {
         $sauna = Sauna::find($id);
 
-        $sauna->fill($request->all())->save();
+        $sauna->fill($request->validated())->save();
 
         Log::info("編集が完了しました。");
 
@@ -47,7 +47,7 @@ class SaunaController extends Controller
     }
 
     //サウナ登録処理
-    public function add(CreateSaunaRequest $request)
+    public function add(SaunaRequest $request)
     {
         //フォームに入力した値の確認
         $sauna = new Sauna;

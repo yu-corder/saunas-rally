@@ -1,0 +1,228 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background: #f1f1f1;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium",
+        "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+}
+form {
+    margin: 0;
+}
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style-type: none;
+}
+h1 {
+    font-size: 24px;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0.2rem;
+}
+h1 small {
+    font-size: 12px;
+    display: block;
+    font-weight: normal;
+    margin-bottom: 5px;
+    letter-spacing: 0rem;
+}
+input {
+    border: none;
+    cursor: pointer;
+}
+a {
+    color: #3ab0cf;
+    text-decoration: none;
+}
+.header {
+    background: #3ab0cf;
+    color: #fff;
+    height: 70px;
+    position: fixed;
+    width: 100%;
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 100%;
+}
+.login-user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.login-user a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #333;
+    padding: 10px 40px;
+    border-radius: 1000px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+.login-user input {
+    background: none;
+    box-shadow: none;
+    color: #333;
+}
+
+.main {
+    display: flex;
+    padding-top: 70px;
+    align-items: stretch;
+    min-height: 100vh;
+}
+.sidebar {
+    width: 300px;
+    background: #333;
+    padding: 20px;
+    color: #fff;
+    flex-shrink: 0;
+}
+.sidebar h2 {
+    margin: 0 0 20px;
+    font-size: 16px;
+    border-left: 3px solid gray;
+    padding-left: 10px;
+    color: gray;
+}
+.menu-list li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(94, 94, 94);
+}
+.contents {
+    flex-grow: 1;
+    background: #fff;
+    margin: 20px 30px;
+    width: 100%;
+    padding: 20px 40px;
+}
+.contents h2 {
+    color: #3ab0cf;
+}
+.contents h2::after {
+    content: "";
+    width: 80px;
+    height: 2px;
+    background: #3ab0cf;
+    display: block;
+    margin-top: 10px;
+}
+.tbl {
+    width: 100%;
+    border-collapse: collapse;
+}
+th,
+td {
+    text-align: left;
+    padding: 10px;
+}
+th {
+    color: #114c81;
+}
+tr {
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+thead tr {
+    border-bottom: 3px solid rgb(228, 228, 228);
+}
+.action {
+    display: flex;
+    gap: 12px;
+}
+.tbl-btn {
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 4px;
+}
+.tbl-btn.edit, .c-btn--primary {
+    background: #3ab0cf;
+    color: #fff;
+}
+.tbl-btn.delete {
+    background: #cf3a3a;
+    color: #fff;
+}
+.tbl-stock-btn {
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 4px;
+    margin: 0 4px;
+}
+.input-border {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: auto;
+}
+.search-btn {
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 4px;
+    background: #3ab0cf;
+    color: #fff;
+}
+label {
+    color: #114c81;
+}
+.c-form__input,.c-form__input--short {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: text;
+}
+.form-group {
+    margin-top: 10px;
+}
+textarea.c-form__input {
+    min-height: 120px;
+    resize: vertical; /* 縦方向にだけ伸ばせる */
+}
+
+select.c-form__input {
+    max-width: 300px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.c-form__input--short {
+    width: 350px;
+}
+
+.c-badge--required {
+    background-color: #cf3a3a; /* 削除ボタンと同じ赤 */
+    color: #fff;
+    font-size: 10px;           /* 少し小さめに */
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 8px;          /* ラベルとの間隔 */
+    vertical-align: middle;    /* 高さを中央に揃える */
+}
+
+.error-message {
+    color: #cf3a3a;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+

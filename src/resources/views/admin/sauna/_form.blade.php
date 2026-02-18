@@ -90,12 +90,15 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="addhas_loyly">ロウリュウ有無</label>
+    <label for="addhas_loyly">ロウリュウ有無<span class="c-badge--required">必須</span></label>
     <select name="has_loyly" id="addhas_loyly" class="c-form__input">
         <option value="">--1 つ選択してください--</option>
         <option value="0" {{ old('has_loyly', $sauna->has_loyly ?? '') == '0' ? 'selected' : '' }}>無し</option>
         <option value="1" {{ old('has_loyly', $sauna->has_loyly ?? '') == '1' ? 'selected' : '' }}>有り</option>
     </select>
+    @error('has_loyly')
+        <div class="error-message">{{ $message }}</div>
+    @enderror
 </div>
 <div class="form-group">
     <label for="adddescription">コメント</label>
