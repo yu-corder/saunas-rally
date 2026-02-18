@@ -19,26 +19,26 @@ class SaunaController extends Controller
         return view("admin.sauna.index", compact('saunas'));
     }
 
-    // // 商品編集ページ
-    // public function showEdit($id)
-    // {
+    //サウナ編集ページ
+    public function showEdit($id)
+    {
 
-    //     $item = Item::find($id);
+        $sauna = Sauna::find($id);
 
-    //     return view('item.edit', ['item' => $item]);
-    // }
+        return view('admin.sauna.edit', ['sauna' => $sauna]);
+    }
 
-    // // 商品編集の実行
-    // public function edit($id, Request $request)
-    // {
-    //     $item = Item::find($id);
+    //サウナ編集の実行
+    public function edit($id, Request $request)
+    {
+        $sauna = Sauna::find($id);
 
-    //     $item->fill($request->all())->save();
+        $sauna->fill($request->all())->save();
 
-    //     Log::info("編集が完了しました。");
+        Log::info("編集が完了しました。");
 
-    //     return redirect("/item");
-    // }
+        return redirect("/admin/sauna");
+    }
 
     //サウナ登録ページ
     public function showAdd()

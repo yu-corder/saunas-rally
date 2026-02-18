@@ -12,12 +12,13 @@
 
 <!-- 'contents'という名称で他のBladeからの呼び出しを可能にする -->
 @section('contents')
-<h2>サウナ登録</h2>
-<form action="{{ url('admin/sauna/add') }}" method="post">
+<h2>サウナ編集</h2>
+<form action="{{ url('admin/sauna/edit/'.$sauna->id) }}" method="post">
     @csrf
-    @include('admin.sauna._form') {{-- 部品を読み込む --}}
+    @method('PATCH')
+    @include('admin.sauna._form', ['sauna' => $sauna])
     <div class="form-group">
-        <input class="tbl-btn edit c-btn--primary" type="submit" name="send" value="登録">
+        <input class="tbl-btn edit c-btn--primary" type="submit" name="send" value="更新">
     </div>
 </form>
 @if (isset($message))
