@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SaunaController; // ここでインポート
+use App\Http\Controllers\Admin\TotonoiHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/admin/sauna/edit/{id}', [SaunaController::class, 'edit']);
 
     Route::post('/admin/sauna/delete/{id}', [SaunaController::class, 'delete']);
+
+    Route::get('/admin/totonoi-history', [TotonoiHistoryController::class, 'index']);
 });
 
 
