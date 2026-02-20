@@ -226,3 +226,8 @@ select.c-form__input {
     margin-bottom: 5px;
 }
 
+.calendar-table { width: 100%; border-collapse: collapse; }
+.calendar-table td { height: 80px; vertical-align: top; width: 14.2%; }
+.has-history { background-color: #e0f7fa; }
+.history-badge { font-size: 0.8em; color: #00796b; }
+

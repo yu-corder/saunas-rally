@@ -19,14 +19,15 @@ class TotonoiHistoryController extends Controller
         $monthParam = $request->query('month', now()->format('Y-m'));
         $currentMonth = \Carbon\Carbon::parse($monthParam)->startOfMonth();
 
-        // 1. その月のカレンダーに必要な履歴データを取得
+        $daysInMonth = $currentMonth->daysInMonth; // その月が何日まであるか
+        $firstDayOfWeek = $currentMonth->dayOfWeek; // 1日の曜日 (0:日, 1:月... 6:土)
+
         $histories = TotonoiHistory::with('sauna') // Sauna名も一緒に取得
             ->whereYear('visit_date', $currentMonth->year)
             ->whereMonth('visit_date', $currentMonth->month)
             ->get()
             ->keyBy('visit_date'); // 日付をキーにしてViewで使いやすくする
 
-        // 2. Viewへ渡す
-        return view('admin.totonoi_history.index', compact('currentMonth', 'histories'));
+        return view('admin.totonoi_history.index', compact('currentMonth', 'daysInMonth', 'firstDayOfWeek', 'histories'));
     }
 }
