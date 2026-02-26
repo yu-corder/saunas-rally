@@ -1,9 +1,10 @@
 <div class="registration-form">
     <h2 class="">サ活登録</h3>
-    <form id="sa-katsu-form">
+    <form id="sa-katsu-form" action="{{ url('admin/totonoi-history/add') }}" method="post">
+        @csrf
         <div>
             <label for="form-visit-date">サ活日</label>
-            <input type="text" type="date" name="visit_date" id="form-visit-date" disabled>
+            <input type="text" type="date" name="visit_date" id="form-visit-date" readonly>
         </div>
         <div>
             <label for="addname">サウナ名</label>
@@ -15,7 +16,7 @@
         </div>
         <div class="sa-katsu-button-group">
             <button class="tbl-btn c-btn--delete sa-katsu-button" type="button" onclick="closeModal()">閉じる</button>
-            <button class="tbl-btn c-btn--primary sa-katsu-button" type="button" onclick="submitForm()">保存</button>
+            <input class="tbl-btn c-btn--primary sa-katsu-button" type="submit" name="send" value="登録">
         </div>
     </form>
 </div>

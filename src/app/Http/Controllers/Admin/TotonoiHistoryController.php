@@ -45,4 +45,15 @@ class TotonoiHistoryController extends Controller
             ]);
         }
     }
+
+    //さ活登録処理
+    public function add(Request $request)
+    {
+        //フォームに入力した値の確認
+        $totonoiHistory = new TotonoiHistory;
+        $totonoiHistory->fill($request->all())->save();
+
+        Log::info("登録が完了しました。");
+        return redirect("/admin/totonoi-history");
+    }
 }

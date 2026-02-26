@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/totonoi-history', [TotonoiHistoryController::class, 'index']);
 
     Route::get('/admin/totonoi-history/add', [TotonoiHistoryController::class, 'showAdd']);
+    Route::post('/admin/totonoi-history/add', [TotonoiHistoryController::class, 'add']);
 });
 
 
