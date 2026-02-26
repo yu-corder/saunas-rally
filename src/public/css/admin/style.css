@@ -231,3 +231,31 @@ select.c-form__input {
 .has-history { background-color: #e0f7fa; }
 .history-badge { font-size: 0.8em; color: #00796b; }
 
+#form-display-area-overray {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+}
+
+#form-display-area {
+    display: none;
+    width: 60%;
+    height: 50%;
+    background-color: #fff;
+    border: #114c81 1px solid;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border-radius: 8px;
+    padding: 20px;
+}
+

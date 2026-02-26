@@ -30,4 +30,19 @@ class TotonoiHistoryController extends Controller
 
         return view('admin.totonoi_history.index', compact('currentMonth', 'daysInMonth', 'firstDayOfWeek', 'histories'));
     }
+
+    //さ活登録ページ
+    public function showAdd(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $saunas = Sauna::all();
+            $html = view('admin.totonoi_history._form', compact('saunas'))->render();
+
+            return response()->json([
+                'status' => 'success',
+                'html' => $html,
+            ]);
+        }
+    }
 }

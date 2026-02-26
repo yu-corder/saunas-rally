@@ -12,6 +12,8 @@
 
     <!-- CSS読み込み -->
     <link href="{{ asset('css/admin/style.css') }}" rel="stylesheet" type="text/css">
+    <!-- JS読み込み -->
+    @vite(['resources/js/admin/admin.js'])
     <!-- フォント読み込み -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type="text/css">

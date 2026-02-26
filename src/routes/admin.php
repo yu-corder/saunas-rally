@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/sauna/delete/{id}', [SaunaController::class, 'delete']);
 
     Route::get('/admin/totonoi-history', [TotonoiHistoryController::class, 'index']);
+
+    Route::get('/admin/totonoi-history/add', [TotonoiHistoryController::class, 'showAdd']);
 });
 
 

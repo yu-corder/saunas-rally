@@ -47,7 +47,7 @@
                     $history = $histories->get($dateStr);
                 @endphp
 
-                <td class="{{ $history ? 'has-history' : '' }}">
+                <td class="{{ $history ? 'has-history' : '' }}" onclick="js_alert(@php $dateStr @endphp)">
                     <div class="day-number">{{ $day }}</div>
 
                     @if($history)
@@ -73,4 +73,6 @@
         </tr>
     </tbody>
 </table>
+<div id="form-display-area-overray" onclick="closeModal()"></div>
+<div id="form-display-area"></div>
 @endsection
