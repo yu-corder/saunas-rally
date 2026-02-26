@@ -47,7 +47,7 @@
                     $history = $histories->get($dateStr);
                 @endphp
 
-                <td class="{{ $history ? 'has-history' : '' }}" onclick="js_alert(@php $dateStr @endphp)">
+                <td class="{{ $history ? 'has-history' : '' }}" onclick="showModal('{{ $dateStr }}')">
                     <div class="day-number">{{ $day }}</div>
 
                     @if($history)

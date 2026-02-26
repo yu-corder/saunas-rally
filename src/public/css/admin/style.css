@@ -149,7 +149,7 @@ thead tr {
     background: #3ab0cf;
     color: #fff;
 }
-.tbl-btn.delete {
+.tbl-btn.delete, .c-btn--delete {
     background: #cf3a3a;
     color: #fff;
 }
@@ -245,9 +245,10 @@ select.c-form__input {
 #form-display-area {
     display: none;
     width: 60%;
-    height: 50%;
+    height: auto;
+    max-height: 80vh;
     background-color: #fff;
-    border: #114c81 1px solid;
+    border: #3ab0cf 1px solid;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -257,5 +258,14 @@ select.c-form__input {
     -ms-transform: translate(-50%, -50%);
     border-radius: 8px;
     padding: 20px;
+}
+
+.sa-katsu-button-group {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.sa-katsu-button {
+    border: none;
 }
 
