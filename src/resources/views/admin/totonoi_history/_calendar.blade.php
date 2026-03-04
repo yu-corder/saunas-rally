@@ -21,7 +21,7 @@
                     $history = $histories->get($dateStr);
                 @endphp
 
-                <td class="{{ $history ? 'has-history' : '' }}" onclick="showModal('{{ $dateStr }}')">
+                <td class="{{ $history ? 'has-history' : '' }}" onclick="showModal('{{ $dateStr }}','{{ route('admin.totonoi_history.add') }}')">
                     <div class="day-number">{{ $day }}</div>
 
                     @if($history)

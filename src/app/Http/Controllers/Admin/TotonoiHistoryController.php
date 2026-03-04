@@ -57,7 +57,11 @@ class TotonoiHistoryController extends Controller
         $totonoiHistory = new TotonoiHistory;
         $totonoiHistory->fill($request->all())->save();
 
+        $visitDate = Carbon::parse($request->input('visit_date'));
+        $monthParam = $visitDate->format('Y-m');
+
+        // ?month=2026-04
         Log::info("登録が完了しました。");
-        return redirect("/admin/totonoi-history");
+        return redirect()->route('admin.totonoi_history.index', ['month' => $monthParam]);
     }
 }

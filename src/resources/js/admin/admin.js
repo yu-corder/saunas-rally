@@ -1,6 +1,6 @@
-window.showModal = function(date) {
+window.showModal = function(date,fetchUrl) {
     // 現在のURLにAjaxリクエストを飛ばす例
-    fetch(window.location.href + '/add', {
+    fetch(fetchUrl, {
         headers: {
             'X-Requested-With': 'XMLHttpRequest'
         }
