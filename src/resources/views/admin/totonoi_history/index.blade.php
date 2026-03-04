@@ -21,10 +21,12 @@
 </form>
 
 <h2>サ活履歴</h2>
+<div class="calendar-paging-group">
+    <a class="calender-month" href="{{ route('admin.totonoi_history.index', ['month' => $prevMonth]) }}"><< 前月</a>
+    <span class="current-month">{{ $currentDate->format('Y年m月') }}</span>
+    <a class="calender-month" href="{{ route('admin.totonoi_history.index', ['month' => $nextMonth]) }}">>> 次月</a>
+</div>
 <div>
     @include('admin.totonoi_history._calendar')
-</div>
-<div class="calendar-paging-group">
-
 </div>
 @endsection

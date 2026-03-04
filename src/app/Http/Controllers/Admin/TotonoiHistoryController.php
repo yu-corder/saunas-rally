@@ -15,20 +15,24 @@ class TotonoiHistoryController extends Controller
     //t_totonoi_historiesテーブルから取得
     public function index(Request $request)
     {
-        // 今月がいつかを取得
         $monthParam = $request->query('month', now()->format('Y-m'));
+        $currentDate = \Carbon\Carbon::parse($monthParam . '-01');
         $currentMonth = \Carbon\Carbon::parse($monthParam)->startOfMonth();
 
-        $daysInMonth = $currentMonth->daysInMonth; // その月が何日まであるか
-        $firstDayOfWeek = $currentMonth->dayOfWeek; // 1日の曜日 (0:日, 1:月... 6:土)
+        $daysInMonth = $currentMonth->daysInMonth;
+        $firstDayOfWeek = $currentMonth->dayOfWeek;
 
-        $histories = TotonoiHistory::with('sauna') // Sauna名も一緒に取得
+        $histories = TotonoiHistory::with('sauna')
             ->whereYear('visit_date', $currentMonth->year)
             ->whereMonth('visit_date', $currentMonth->month)
             ->get()
-            ->keyBy('visit_date'); // 日付をキーにしてViewで使いやすくする
+            ->keyBy('visit_date');
 
-        return view('admin.totonoi_history.index', compact('currentMonth', 'daysInMonth', 'firstDayOfWeek', 'histories'));
+        // 前月・次月のリンク用文字列（YYYY-MM）
+        $prevMonth = $currentDate->copy()->subMonth()->format('Y-m');
+        $nextMonth = $currentDate->copy()->addMonth()->format('Y-m');
+
+        return view('admin.totonoi_history.index', compact('currentMonth', 'daysInMonth', 'firstDayOfWeek', 'histories', 'prevMonth', 'nextMonth', 'currentDate'));
     }
 
     //さ活登録ページ
