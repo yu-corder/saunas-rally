@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Controller;
 use App\Models\Sauna;
+use App\Models\Rating;
 use App\Http\Requests\Admin\SaunaRequest;
 
 

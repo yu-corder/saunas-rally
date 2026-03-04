@@ -21,4 +21,9 @@ class Sauna extends Model
         'has_loyly',
         'description',
     ];
+
+    public function rating()
+    {
+        return $this->hasOne(Rating::class);
+    }
 }
