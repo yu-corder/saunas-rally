@@ -269,3 +269,7 @@ select.c-form__input {
     border: none;
 }
 
+.calendar-paging-group {
+    margin-bottom: 5px;
+}
+
