@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\TotonoiHistoryRequest;
 use App\Models\Sauna;
 use App\Models\TotonoiHistory;
 use Carbon\Carbon;
@@ -51,7 +52,7 @@ class TotonoiHistoryController extends Controller
     }
 
     //さ活登録処理
-    public function add(Request $request)
+    public function add(TotonoiHistoryRequest $request)
     {
         //フォームに入力した値の確認
         $totonoiHistory = new TotonoiHistory;
