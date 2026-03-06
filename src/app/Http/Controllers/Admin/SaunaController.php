@@ -33,9 +33,22 @@ class SaunaController extends Controller
     //サウナ編集の実行
     public function edit($id, SaunaRequest $request)
     {
-        $sauna = Sauna::find($id);
+        DB::transaction(function () use ($id, $request) {
+            $sauna = Sauna::find($id);
 
-        $sauna->fill($request->validated())->save();
+            $sauna->fill($request->validated())->save();
+
+            // 2. 評価データの更新（なければ作成）
+            $sauna->rating()->updateOrCreate(
+                ['sauna_id' => $sauna->id],
+                [
+                    'cost_performance' => $request->cost_performance,
+                    'accessibility'    => $request->accessibility,
+                    'comfortability'   => $request->comfortability,
+                    'totonoi_score'    => $request->totonoi_score,
+                ]
+            );
+        });
 
         Log::info("編集が完了しました。");
 
