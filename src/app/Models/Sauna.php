@@ -20,6 +20,8 @@ class Sauna extends Model
         'water_temp',
         'has_loyly',
         'description',
+        'price',
+        'weekend_price',
     ];
 
     public function rating()

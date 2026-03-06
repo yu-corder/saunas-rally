@@ -31,6 +31,8 @@ class SaunaRequest extends FormRequest
             'water_temp'  => 'nullable|integer|min:0|max:50',
             'has_loyly' => 'required|in:0,1',
             'description' => 'nullable|string|max:1000',
+            'price'         => 'nullable|integer|min:0',
+            'weekend_price' => 'nullable|integer|min:0',
 
             // --- 追加：評価項目のバリデーション ---
             'cost_performance' => 'required|integer|between:1,5',
@@ -52,6 +54,8 @@ class SaunaRequest extends FormRequest
             'water_temp'  => '水風呂温度',
             'has_loyly'   => 'ロウリュの有無',
             'description' => '施設説明',
+            'price'         => '平日料金',
+            'weekend_price' => '休日料金',
             'cost_performance' => 'コスパ',
             'accessibility'    => 'アクセス',
             'comfortability'   => '快適度',

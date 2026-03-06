@@ -89,6 +89,34 @@
             placeholder="水風呂温度">
     </div>
 </div>
+<div class="form-row">
+    <div class="form-group">
+        <label for="addprice">平日料金（円）</label>
+        <input
+            class="c-form__input--short"
+            id="addprice"
+            type="number"
+            name="price"
+            value="{{ old('price', $sauna->price ?? '') }}"
+            placeholder="例: 800">
+        @error('price')
+            <div class="error-message">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <label for="addweekend_price">休日料金（円）</label>
+        <input
+            class="c-form__input--short"
+            id="addweekend_price"
+            type="number"
+            name="weekend_price"
+            value="{{ old('weekend_price', $sauna->weekend_price ?? '') }}"
+            placeholder="例: 1000">
+        @error('weekend_price')
+            <div class="error-message">{{ $message }}</div>
+        @enderror
+    </div>
+</div>
 <div class="form-group">
     <label for="addhas_loyly">ロウリュウ有無<span class="c-badge--required">必須</span></label>
     <select name="has_loyly" id="addhas_loyly" class="c-form__input">
