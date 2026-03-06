@@ -109,3 +109,54 @@
         <div>{{ $message }}</div>
     @enderror
 </div>
+
+<h2 class="form-section-title">サウナ評価（5段階）</h2>
+
+<div class="form-row form-sauna-rating">
+    <div class="form-group from-sauna-rating-group">
+        <label for="addcost_performance">コスパ<span class="c-badge--required">必須</span></label>
+        <select name="cost_performance" id="addcost_performance" class="c-form__input--short @error('cost_performance') is-invalid @enderror">
+            @for ($i = 1; $i <= 5; $i++)
+                <option value="{{ $i }}" {{ old('cost_performance', $sauna->rating->cost_performance ?? 3) == $i ? 'selected' : '' }}>{{ $i }}</option>
+            @endfor
+        </select>
+        @error('cost_performance')
+            <div class="error-message">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="form-group from-sauna-rating-group">
+        <label for="addaccessibility">アクセス<span class="c-badge--required">必須</span></label>
+        <select name="accessibility" id="addaccessibility" class="c-form__input--short @error('accessibility') is-invalid @enderror">
+            @for ($i = 1; $i <= 5; $i++)
+                <option value="{{ $i }}" {{ old('accessibility', $sauna->rating->accessibility ?? 3) == $i ? 'selected' : '' }}>{{ $i }}</option>
+            @endfor
+        </select>
+        @error('accessibility')
+            <div class="error-message">{{ $message }}</div>
+        @enderror
+    </div>
+</div>
+<div class="form-row form-sauna-rating">
+    <div class="form-group">
+        <label for="addcomfortability">快適度<span class="c-badge--required">必須</span></label>
+        <select name="comfortability" id="addcomfortability" class="c-form__input--short @error('comfortability') is-invalid @enderror">
+            @for ($i = 1; $i <= 5; $i++)
+                <option value="{{ $i }}" {{ old('comfortability', $sauna->rating->comfortability ?? 3) == $i ? 'selected' : '' }}>{{ $i }}</option>
+            @endfor
+        </select>
+        @error('comfortability')
+            <div class="error-message">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <label for="addtotonoi_score">ととのい度<span class="c-badge--required">必須</span></label>
+        <select name="totonoi_score" id="addtotonoi_score" class="c-form__input--short @error('totonoi_score') is-invalid @enderror">
+            @for ($i = 1; $i <= 5; $i++)
+                <option value="{{ $i }}" {{ old('totonoi_score', $sauna->rating->totonoi_score ?? 3) == $i ? 'selected' : '' }}>{{ $i }}</option>
+            @endfor
+        </select>
+        @error('totonoi_score')
+            <div class="error-message">{{ $message }}</div>
+        @enderror
+    </div>
+</div>

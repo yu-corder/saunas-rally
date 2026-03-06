@@ -16,7 +16,7 @@
 <form action="{{ url('admin/sauna/add') }}" method="post">
     @csrf
     @include('admin.sauna._form') {{-- 部品を読み込む --}}
-    <div class="form-group">
+    <div class="form-group form-btn-group">
         <input class="tbl-btn edit c-btn--primary" type="submit" name="send" value="登録">
     </div>
 </form>

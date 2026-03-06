@@ -31,6 +31,12 @@ class SaunaRequest extends FormRequest
             'water_temp'  => 'nullable|integer|min:0|max:50',
             'has_loyly' => 'required|in:0,1',
             'description' => 'nullable|string|max:1000',
+
+            // --- 追加：評価項目のバリデーション ---
+            'cost_performance' => 'required|integer|between:1,5',
+            'accessibility'    => 'required|integer|between:1,5',
+            'comfortability'   => 'required|integer|between:1,5',
+            'totonoi_score'    => 'required|integer|between:1,5',
         ];
     }
 
@@ -46,6 +52,10 @@ class SaunaRequest extends FormRequest
             'water_temp'  => '水風呂温度',
             'has_loyly'   => 'ロウリュの有無',
             'description' => '施設説明',
+            'cost_performance' => 'コスパ',
+            'accessibility'    => 'アクセス',
+            'comfortability'   => '快適度',
+            'totonoi_score'    => 'ととのい度',
         ];
     }
 }

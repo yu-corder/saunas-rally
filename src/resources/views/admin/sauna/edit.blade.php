@@ -17,7 +17,7 @@
     @csrf
     @method('PATCH')
     @include('admin.sauna._form', ['sauna' => $sauna])
-    <div class="form-group">
+    <div class="form-group form-btn-group">
         <input class="tbl-btn edit c-btn--primary" type="submit" name="send" value="更新">
     </div>
 </form>

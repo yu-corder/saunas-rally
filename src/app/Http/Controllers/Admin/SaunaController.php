@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Sauna;
 use App\Models\Rating;
 use App\Http\Requests\Admin\SaunaRequest;
+use Illuminate\Support\Facades\DB;
 
 
 class SaunaController extends Controller
@@ -51,9 +52,19 @@ class SaunaController extends Controller
     public function add(SaunaRequest $request)
     {
         //フォームに入力した値の確認
-        $sauna = new Sauna;
+        DB::transaction(function () use ($request) {
+            $sauna = new Sauna;
 
-        $sauna->fill($request->all())->save();
+            $sauna->fill($request->all())->save();
+
+            // 2. 評価データの登録
+            $sauna->rating()->create([
+                'cost_performance' => $request->cost_performance,
+                'accessibility'    => $request->accessibility,
+                'comfortability'   => $request->comfortability,
+                'totonoi_score'    => $request->totonoi_score,
+            ]);
+        });
 
         Log::info("登録が完了しました。");
         return view('admin.sauna.add',
