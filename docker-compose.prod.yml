@@ -10,6 +10,7 @@ services:
       - ./docker-config/nginx/default.conf.prod:/etc/nginx/http.d/default.conf
       - ./docker-config/nginx/wp-blog.conf.prod:/etc/nginx/http.d/wp-blog.conf
       - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/log/sauna-rally/nginx:/var/log/nginx
     restart: always
 
   mariadb:
