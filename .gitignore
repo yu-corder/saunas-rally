@@ -2,3 +2,4 @@
 /docker-config/mariadb/data/
 src/.rcs/
 docker-config/nginx/certs/
+/renew.log
