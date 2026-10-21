@@ -21,16 +21,14 @@ server {
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers HIGH:!aNULL:!MD5;
 
-    add_header Retry-After 86400 always;
-
-    error_page 503 /maintenance.html;
-
-    location = /maintenance.html {
-        root /usr/share/nginx/html;
-        internal;
-    }
-
     location / {
-        return 503;
+        proxy_pass http://133.167.92.6:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # WordPressのリダイレクトループ防止
+        proxy_redirect http://localhost:8080/ /;
     }
 }
