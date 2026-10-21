@@ -3,11 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
   <title>メンテナンス中</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --color-primary: #123e63;
+      --color-secondary: #4385ad;
+      --color-background: #f5fbff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      padding: 32px 20px;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      background:
+        radial-gradient(
+          ellipse at 0% 0%,
+          #d9efff 0,
+          transparent 35%
+        ),
+        radial-gradient(
+          ellipse at 100% 100%,
+          #d5f4ed 0,
+          transparent 32%
+        ),
+        var(--color-background);
+      color: var(--color-primary);
+      font-family:
+        -apple-system, BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN", "Yu Gothic",
+        Meiryo, sans-serif;
+      text-align: center;
+    }
+
+    .maintenance {
+      width: 100%;
+      max-width: 760px;
+      padding: 24px 0;
+    }
+
+    h1 {
+      margin: 0 0 28px;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+    }
+
+    .message {
+      margin: 0;
+      font-size: clamp(1rem, 2.8vw, 1.25rem);
+      line-height: 2;
+    }
+
+    .footer {
+      margin-top: 48px;
+      color: var(--color-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .footer {
+        margin-top: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>メンテナンス中です</h1>
-  <p>現在、システムメンテナンスを実施しています。</p>
-  <p>ご不便をおかけしますが、しばらくお待ちください。</p>
+  <main class="maintenance">
+    <h1>メンテナンス中です</h1>
+
+    <p class="message">
+      現在、システムメンテナンスを実施しています。<br>
+      ご不便をおかけしますが、しばらくお待ちください。
+    </p>
+
+    <p class="footer">
+      またのご利用をお待ちしております
+    </p>
+  </main>
 </body>
 </html>
