@@ -19,10 +19,12 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/sauna-rally.com/privkey.pem;
 
     ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers         HIGH:!aNULL:!MD5;
+    ssl_ciphers HIGH:!aNULL:!MD5;
 
     access_log /var/log/nginx/ssl-access.log;
     error_log  /var/log/nginx/ssl-error.log;
+
+    add_header Retry-After 86400 always;
 
     error_page 503 /maintenance.html;
 
