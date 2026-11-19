@@ -6,6 +6,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ./docker-config/nginx/default.conf.prod:/etc/nginx/http.d/default.conf
       - ./docker-config/nginx/wp-blog.conf.prod:/etc/nginx/http.d/wp-blog.conf
